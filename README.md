@@ -4,6 +4,12 @@ A command-line tool that finds security problems in code folders and in your own
 
 > **Status: in progress.** DataVault is being built in stages, with a tagged release at the end of each one. The first release, v0.1, will find hard-coded secrets in a folder.
 
+## About this project
+
+I'm building DataVault to learn software engineering and cloud security in practice:
+Python packaging, command-line tools, SQL database design, automated testing and the
+AWS SDK. It's developed in stages over 16 weeks, with a tagged release at the end of each stage.
+
 ## What works today
 
 - Walks a folder and all of its subfolders
