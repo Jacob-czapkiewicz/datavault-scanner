@@ -2,6 +2,8 @@
 # A Path is an object that represents a file or folder location.
 from pathlib import Path
 
+from rules import RULES
+
 print("DataVault v0.0")
 
 
@@ -32,8 +34,12 @@ def main():
             if is_binary(item):
                 continue  # Skip binary files
             with open(item, "r", encoding="utf-8", errors="ignore") as f:
-                for line in f:
-                    pass  # Just read the lines to ensure we can read the file
+                for line_num, line in enumerate(f, start=1):
+                    for rule in RULES:
+                        for r in rule["pattern"].finditer(line):
+                            print(f"[{rule['severity']}] {rule['name']} found in {item}:{line_num}")
+                            
+                                
             count += 1
         except OSError as e:
             print(f"Error occurred while processing {item}: {e}")
